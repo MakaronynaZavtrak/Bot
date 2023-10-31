@@ -39,9 +39,11 @@ public class ConsoleBotTest{
         strIn[2] = "/stop";
 
         String[] expectedOut = new String[3];
-        expectedOut[0] = "Some message\r\n";
-        expectedOut[1] = cBot.guide()+"\r\n";
-        expectedOut[2] = cBot.farewell();
+        expectedOut[0] = "Some message" + "\r\n";
+        expectedOut[1] = "В своём арсенале я имею следующие функции:\n" +
+                "\"/stop\" - если вы хотите завершить работу с ботом\n" +
+                "\"/help\" - если вы хотите узнать, на что я споособен"+"\r\n";
+        expectedOut[2] = "Что ж! Приятно было пообщаться!";
 
         for (int i = 0; i < 3; i++)
         {
