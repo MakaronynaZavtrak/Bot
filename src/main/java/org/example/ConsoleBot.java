@@ -4,6 +4,9 @@ import java.io.InputStream;
 
 import java.util.Scanner;
 
+/**
+ * Класс консольного бота для 1 задания.
+ */
 public class ConsoleBot implements BotInterface  {
     @Override
     public String  sayInfo(){
@@ -36,6 +39,11 @@ public class ConsoleBot implements BotInterface  {
             println(instr);
         }
     }
+
+    /**
+     * Функция, которая содержит цикл для работы бота.
+     * Выход из цикла осуществляется командой.
+     */
     public void startBot()
     {
         println(sayInfo());
@@ -52,6 +60,11 @@ public class ConsoleBot implements BotInterface  {
             }
         }
     }
+
+    /**
+     * Функция-конструктор класса ConsoleBot.
+     * @param status boolean значение. Если 1, то запускает бота, если 0, то нет.
+     */
     public ConsoleBot(boolean status)
     {
         if (status)
@@ -60,14 +73,20 @@ public class ConsoleBot implements BotInterface  {
         }
     };
 
+    /**
+     * Функция, печатающая строку и переводящая курсор на начало новой строки.
+     * @param str строка для печати.
+     */
     private void println(String str)
     {
         System.out.println(str);
     }
+    /**
+     * Функция, печатающая строку и оставляющая курсор на конце той же строки.
+     * @param str строка для печати.
+     */
     private void print(String str)
     {
         System.out.print(str);
     }
-
-    //TODO: сделать метод для работы бота в консоли. и тест к нему
 }
