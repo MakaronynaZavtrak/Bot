@@ -8,6 +8,7 @@ import java.util.Scanner;
  * Класс консольного бота для 1 задания.
  */
 public class ConsoleBot implements BotInterface  {
+    private boolean status;
     @Override
     public String  sayInfo(){
         return "Привет! Меня зовут Бот-Фёдор!\n" +
@@ -27,6 +28,14 @@ public class ConsoleBot implements BotInterface  {
     {
         return "Что ж! Приятно было пообщаться!";
     }
+
+    /**
+     * Обрабатывает входящую строку. Если строка не команда,
+     * печатает введенную строку в консоль. Если
+     * Введенная строка /help - печатает справку.
+     * Если введенная строка /stop - печатает в консоль сообщение с прощанием.
+     * @param instr строка, введеная пользователем.
+     */
     @Override
     public void answer(String instr)
     {
@@ -41,6 +50,28 @@ public class ConsoleBot implements BotInterface  {
     }
 
     /**
+     * функция, обрабатывающая входящие сообщения
+     * @param message
+     * @return
+     */
+
+    String handleMessage(String message) {
+        switch (message) {
+            case "/help" -> {
+                return  guide();
+            }
+            case "/stop" -> {
+                status = false;
+                return farewell();
+            }
+            case "/start" -> {
+                return sayInfo();
+            }
+        }
+        return message;
+    }
+
+    /**
      * Функция, которая содержит цикл для работы бота.
      * Выход из цикла осуществляется командой.
      */
@@ -50,14 +81,11 @@ public class ConsoleBot implements BotInterface  {
         boolean isOn = true;
         Scanner sc = new Scanner(System.in);
         String strCheck;
-        while (isOn)
+        while (status)
         {
             strCheck = sc.nextLine();
-            answer(strCheck);
-            if (strCheck.equals("/stop"))
-            {
-                isOn = false;
-            }
+            String answer = handleMessage(strCheck);
+            println(answer);
         }
     }
 
@@ -67,6 +95,7 @@ public class ConsoleBot implements BotInterface  {
      */
     public ConsoleBot(boolean status)
     {
+        this.status = status;
         if (status)
         {
             startBot();
