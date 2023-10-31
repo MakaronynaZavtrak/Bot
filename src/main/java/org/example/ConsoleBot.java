@@ -8,7 +8,18 @@ import java.util.Scanner;
  * Класс консольного бота для 1 задания.
  */
 public class ConsoleBot implements BotInterface  {
+    /**
+     * Переменная status характеризует статус работы бота
+     * При значении true бот работает
+     * При значении false бот не работает
+     */
     private boolean status;
+
+    /**
+     *  Возвращает Сообщение-приветствие
+     * @return Сообщение-приветствие
+     *
+     */
     @Override
     public String  sayInfo(){
         return "Привет! Меня зовут Бот-Фёдор!\n" +
@@ -17,12 +28,23 @@ public class ConsoleBot implements BotInterface  {
                 "Чтобы начать пользоваться мною, начни писать мне сообщения!\n" +
                 "Если у тебя возникли вопросы, напиши команду \"/help\", и я расскажу тебе, что я умею!";
     }
+
+    /**
+     * Возвращает строку-справку функционала бота
+     * @return
+     * возвращает справку о функционале бота
+     */
     @Override
     public String guide(){
         return "В своём арсенале я имею следующие функции:\n" +
                 "\"/stop\" - если вы хотите завершить работу с ботом\n" +
                 "\"/help\" - если вы хотите узнать, на что я споособен";
     }
+
+    /**
+     * Возвращает строку-прощание
+     * @return Строка-прощание
+     */
     @Override
     public String farewell()
     {
@@ -30,32 +52,15 @@ public class ConsoleBot implements BotInterface  {
     }
 
     /**
-     * Обрабатывает входящую строку. Если строка не команда,
-     * печатает введенную строку в консоль. Если
-     * Введенная строка /help - печатает справку.
-     * Если введенная строка /stop - печатает в консоль сообщение с прощанием.
-     * @param instr строка, введеная пользователем.
-     */
-    @Override
-    public void answer(String instr)
-    {
-        if (instr.equals("/help"))
-        {
-            println(guide());
-        } else if (instr.equals("/stop")){
-            print(farewell());
-        } else {
-            println(instr);
-        }
-    }
-
-    /**
      * функция, обрабатывающая входящие сообщения
-     * @param message
+     *<p> @param message</p>
+     *<p> /help - возвращает справку о боте.<p>
+     *<p> /stop - возвращает сообщение с прощанием и завершает работу.<p>
+     *<p> /start - возвращает сообщение с приветствием
      * @return
      */
-
-    String handleMessage(String message) {
+@Override
+    public String handleMessage(String message) {
         switch (message) {
             case "/help" -> {
                 return  guide();
@@ -78,7 +83,6 @@ public class ConsoleBot implements BotInterface  {
     public void startBot()
     {
         println(sayInfo());
-        boolean isOn = true;
         Scanner sc = new Scanner(System.in);
         String strCheck;
         while (status)
@@ -91,7 +95,7 @@ public class ConsoleBot implements BotInterface  {
 
     /**
      * Функция-конструктор класса ConsoleBot.
-     * @param status boolean значение. Если 1, то запускает бота, если 0, то нет.
+     * @param status boolean значение. Если true, то запускает бота, если false, то нет.
      */
     public ConsoleBot(boolean status)
     {
