@@ -7,9 +7,9 @@ public interface BotInterface
 {
     /**
      * Функция для ответа на введенную пользователем строку.
-     * @param inStr строка, введеная пользователем.
+     * @param message строка, введеная пользователем.
      */
-    public void answer(String inStr);
+    public String handleMessage(String message);
 
     /**
      * Фунция, хранящяя приветствие.
