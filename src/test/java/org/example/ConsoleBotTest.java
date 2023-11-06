@@ -28,7 +28,11 @@ public class ConsoleBotTest{
         System.setOut(originalOut);
         System.setOut(originalErr);
     }
-@Test
+
+    /**
+     * Тестирует answer на ответы
+     */
+    @Test
     public void answerTest()
     {
         ConsoleBot cBot = new ConsoleBot(false);
