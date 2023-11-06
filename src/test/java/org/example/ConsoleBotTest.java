@@ -11,17 +11,39 @@ import java.nio.charset.StandardCharsets;
 
 import static org.junit.Assert.*;
 
+/**
+ * Класс для тестирования методов ConsoleBot
+ */
 public class ConsoleBotTest{
+    /**
+     * Поток, который будет использоваться для текста, выводящегося в консоль.
+     */
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    /**
+     * Поток, который будет использоваться для текста об ошибках, выводящихся в консоль.
+     */
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+    /**
+     * Стандартный поток вывода.
+     */
     private final PrintStream originalOut = System.out;
+    /**
+     * Стандартный поток вывода для ошибок.
+     */
     private final PrintStream originalErr = System.err;
+
+    /**
+     * Метод, который срабатывает перед тестами и заменяет потоки вывода.
+     */
     @Before
     public void setUpStreams()
     {
         System.setOut(new PrintStream(outContent));
         System.setErr(new PrintStream(errContent));
     }
+    /**
+     * Метод, который срабатывает после тестов и устанавливает стандартные потоки вывода.
+     */
     @After
     public void restoreStreams()
     {
