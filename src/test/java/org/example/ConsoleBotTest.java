@@ -1,13 +1,11 @@
 package org.example;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.nio.charset.StandardCharsets;
 
 import static org.junit.Assert.*;
 
@@ -19,14 +17,17 @@ public class ConsoleBotTest{
      * Поток, который будет использоваться для текста, выводящегося в консоль.
      */
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
     /**
      * Поток, который будет использоваться для текста об ошибках, выводящихся в консоль.
      */
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+
     /**
      * Стандартный поток вывода.
      */
     private final PrintStream originalOut = System.out;
+
     /**
      * Стандартный поток вывода для ошибок.
      */
@@ -41,6 +42,7 @@ public class ConsoleBotTest{
         System.setOut(new PrintStream(outContent));
         System.setErr(new PrintStream(errContent));
     }
+
     /**
      * Метод, который срабатывает после тестов и устанавливает стандартные потоки вывода.
      */
@@ -56,6 +58,7 @@ public class ConsoleBotTest{
      * Сравнивает handleMessage() с аргументами "Some message", "/help", "/stop"
      * со строками, которые должны быть выбраны методом после его работы.
      */
+
     @Test
     public void handleMessageTest()
     {
