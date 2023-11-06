@@ -85,10 +85,11 @@ public class ConsoleBot implements BotInterface  {
         println(sayInfo());
         Scanner sc = new Scanner(System.in);
         String strCheck;
+        String answer;
         while (status)
         {
             strCheck = sc.nextLine();
-            String answer = handleMessage(strCheck);
+            answer = handleMessage(strCheck);
             println(answer);
         }
     }
