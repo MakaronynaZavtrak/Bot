@@ -1,13 +1,12 @@
 package org.example;
 
-import java.io.InputStream;
-
 import java.util.Scanner;
 
 /**
  * Класс консольного бота для 1 задания.
  */
-public class ConsoleBot implements BotInterface  {
+public class ConsoleBot implements BotInterface
+{
     /**
      * Переменная status характеризует статус работы бота
      * При значении true бот работает
@@ -21,7 +20,8 @@ public class ConsoleBot implements BotInterface  {
      *
      */
     @Override
-    public String  sayInfo(){
+    public String  sayInfo()
+    {
         return "Привет! Меня зовут Бот-Фёдор!\n" +
                 "Я ещё мало что умею делать, но со временем стану более функциональным.\n" +
                 "А пока я просто умею выводить твои сообщения на экран.\n" +
@@ -35,7 +35,8 @@ public class ConsoleBot implements BotInterface  {
      * возвращает справку о функционале бота
      */
     @Override
-    public String guide(){
+    public String guide()
+    {
         return "В своём арсенале я имею следующие функции:\n" +
                 "\"/stop\" - если вы хотите завершить работу с ботом\n" +
                 "\"/help\" - если вы хотите узнать, на что я споособен";
@@ -60,7 +61,8 @@ public class ConsoleBot implements BotInterface  {
      * @return
      */
 @Override
-    public String handleMessage(String message) {
+    public String handleMessage(String message)
+    {
         switch (message) {
             case "/help" -> {
                 return  guide();

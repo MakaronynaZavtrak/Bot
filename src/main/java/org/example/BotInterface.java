@@ -7,24 +7,29 @@ public interface BotInterface
 {
     /**
      * Функция для ответа на введенную пользователем строку.
+     *
      * @param message строка, введеная пользователем.
      */
-    public String handleMessage(String message);
+    String handleMessage(String message);
 
     /**
      * Фунция, хранящяя приветствие.
+     *
      * @return строка-приветствие.
      */
-    public String sayInfo();
+    String sayInfo();
+
     /**
      * Фунция, хранящяя help-сообщение.
+     *
      * @return help-строка со всеми функциями бота.
      */
-    public String guide();
+    String guide();
 
     /**
      * Фунция, хранящяя сообщение-прощание.
+     *
      * @return строка-прощание.
      */
-    public String farewell();
+    String farewell();
 }
